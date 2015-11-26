@@ -42,13 +42,13 @@ public class QuestionFrame extends JFrame implements ActionListener
 
    }
 
+
    private void setButtonStatus(boolean isEnabled){
       for(JButton button : buttons)
       {
          button.setEnabled(isEnabled);
       }
    }
-
 
    private void addButton(String[]pArray,JPanel pPanel)
    {

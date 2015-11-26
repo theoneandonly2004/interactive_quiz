@@ -21,7 +21,7 @@ public class FrameRun
 
    public static void main(String[] args)
    {
-      System.out.println("hi");
+
       ArrayList<Questions>questionsList=new ArrayList<Questions>();
       MainQuiz.readFromFile(questionsList);
 
