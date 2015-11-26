@@ -78,6 +78,7 @@ public class BetweenFrame extends JFrame implements ActionListener
    public BetweenFrame(String title, ArrayList<Questions> pQuestion,int pCurrentQuestion,String pAnswerGiven,QuestionFrame pFrame) throws HeadlessException {
       super(title);
 
+      pFrame.setEnabled(false);
       Toolkit tk = Toolkit.getDefaultToolkit();
       int width=tk.getScreenSize().width/3;
       int height=tk.getScreenSize().height/2;
@@ -146,7 +147,7 @@ public class BetweenFrame extends JFrame implements ActionListener
       super(title, gc);
    }
 
-   @Override
+
    public void actionPerformed(ActionEvent e)
    {
       if(e.getSource()==continueButton)
