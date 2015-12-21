@@ -108,7 +108,7 @@ public class BetweenFrame extends JFrame implements ActionListener
       this.add(panel);
       this.pack();
       this.setVisible(true);
-      //sets up frame and disables buttons on previous frame to prevent multiple clicks
+      //sets up frame and disables buttons on previous frame to prevent multiple clicks as was used as exploit
    }
 
    public BetweenFrame(String title, ArrayList<ImageRound> pQuestion,int pCurrentQuestion,String pAnswerGiven,ImageGameFrame pFrame) throws HeadlessException {
