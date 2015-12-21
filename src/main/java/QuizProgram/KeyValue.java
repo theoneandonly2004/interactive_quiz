@@ -19,7 +19,7 @@ public class KeyValue
    private static PrintWriter toServer;
    private static Scanner fromServer;
    private static Socket socket;
-   public static final String RESOURCEPATH= "src/Resources/TextFiles/";
+   public static final String RESOURCEPATH= "src\\Resources\\TextFiles\\";
    public static final String IMAGEPATH= "src/Resources/Images/";
    public static final String QUESTIONPATH=RESOURCEPATH+"Questions";
    public static final String fileBeginning= "src/QuizProgram/Profiles/";

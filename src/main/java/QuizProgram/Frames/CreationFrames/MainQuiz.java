@@ -1,6 +1,7 @@
-package QuizProgram;
+package QuizProgram.Frames.CreationFrames;
 
 import QuizProgram.GameInfo.Questions;
+import QuizProgram.KeyValue;
 
 import java.io.File;
 import java.io.FileNotFoundException;

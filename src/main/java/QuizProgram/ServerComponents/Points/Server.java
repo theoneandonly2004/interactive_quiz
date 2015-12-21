@@ -13,7 +13,7 @@ public class Server
    public static final int PORT=2004;
    public static void main(String[] args)  throws IOException
    {
-      new ServerFrame("frame");
+      new ServerFrame("Server");
       PointsServer.setupList();
       PointsServer.setupServer();
 
@@ -24,7 +24,7 @@ public class Server
       int currentArrayPosition=0;
       ArrayList<TeamThread>teamList=new ArrayList<TeamThread>();
       ServerSocket serverSocket=new ServerSocket(PORT);
-      System.out.println("now searching for valid client");
+
 
       while(true) {
          Socket socket = serverSocket.accept();

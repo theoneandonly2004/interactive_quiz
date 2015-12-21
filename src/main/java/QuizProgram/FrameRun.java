@@ -1,6 +1,7 @@
 package QuizProgram;
 
 import QuizProgram.Frames.*;
+import QuizProgram.Frames.CreationFrames.MainQuiz;
 import QuizProgram.GameInfo.ImageRound;
 import QuizProgram.GameInfo.Questions;
 import QuizProgram.Profiles.UserProfile;
