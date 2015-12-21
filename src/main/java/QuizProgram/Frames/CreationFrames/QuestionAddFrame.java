@@ -4,6 +4,8 @@ import QuizProgram.GameInfo.Questions;
 import QuizProgram.KeyValue;
 
 import javax.swing.*;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,11 +38,13 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
 
       questionShower=new JTextPane();
       allQuestions=new JScrollPane(questionShower);
+
       questionShower.setEditable(false);
 
+
       questions=pQuestions;
-      for(Questions current:questions){
-         questionShower.setText(questionShower.getText() + "\n" + current.getQuestion());
+      for(int count=0;count<questions.size();count++){
+         questionShower.setText(questionShower.getText() + "\n" + questions.get(count).getQuestion());
       }
 
       add=new JButton("add a question");
@@ -73,10 +77,18 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
          System.out.println("delete clicked");
          for(Questions current:questions){
             if(current.getQuestion().equals(selected)){
+               System.out.println(current.getQuestion() + " size of : " + questions.size());
                questions.remove(current);
+               System.out.println(current.getQuestion() + " size of : " + questions.size());
+               break;
             }
          }
-
+         MainQuiz.printToFile(questions);
+        questionShower.setText("");
+         for(Questions current:questions){
+            System.out.println(current.getQuestion());
+            questionShower.setText(questionShower.getText() + "\n" + current.getQuestion());
+         }
       }
       else if(e.getSource().equals(add)){
          isAdding = true;

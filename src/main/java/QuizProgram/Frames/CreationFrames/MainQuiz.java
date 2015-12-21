@@ -38,7 +38,9 @@ public class MainQuiz {
 
       try {
          if (open) {
+
             for (int count = 0; count < pQuestions.size(); count++) {
+               print(pQuestions.get(count).getQuestion());
                writer.println(pQuestions.get(count).toString());
             }
 

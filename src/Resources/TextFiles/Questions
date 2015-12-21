@@ -29,16 +29,6 @@ OPTIONS
 8
 END
 QUESTION
-who is the manager of liverpool football club?
-ANSWERS
-brendan rodgers
-OPTIONS
-arsen wenger
-sam aulderdice
-brendan rodgers
-steven gerrard
-END
-QUESTION
 shrek has 3 children which of the following is not one of their names
 ANSWERS
 fiona
@@ -47,14 +37,4 @@ fergus
 fiona
 felisha
 fungus
-END
-QUESTION
-which of the following is not a simpson
-ANSWERS
-peter
-OPTIONS
-bart
-peter
-homer
-maggie
 END
