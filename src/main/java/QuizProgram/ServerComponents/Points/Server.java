@@ -25,7 +25,7 @@ public class Server
       ArrayList<TeamThread>teamList=new ArrayList<TeamThread>();
       ServerSocket serverSocket=new ServerSocket(PORT);
       System.out.println("now searching for valid client");
-
+      //server will constantly look for new people connecting
       while(true) {
          Socket socket = serverSocket.accept();
         teamList.add(new TeamThread(socket));
