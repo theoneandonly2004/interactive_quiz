@@ -43,6 +43,13 @@ public class QuestionFrame extends JFrame implements ActionListener
    }
 
 
+   private void setButtonStatus(boolean isEnabled){
+      for(JButton button : buttons)
+      {
+         button.setEnabled(isEnabled);
+      }
+   }
+
    private void addButton(String[]pArray,JPanel pPanel)
    {
       int size=pArray.length;
@@ -107,7 +114,7 @@ public class QuestionFrame extends JFrame implements ActionListener
       super(title, gc);
    }
 
-   @Override
+
    public void actionPerformed(ActionEvent e)
    {
       boolean isFound=false;

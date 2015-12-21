@@ -78,6 +78,8 @@ public class BetweenFrame extends JFrame implements ActionListener
    public BetweenFrame(String title, ArrayList<Questions> pQuestion,int pCurrentQuestion,String pAnswerGiven,QuestionFrame pFrame) throws HeadlessException {
       super(title);
 
+      pFrame.setEnabled(false);
+
       Toolkit tk = Toolkit.getDefaultToolkit();
       int width=tk.getScreenSize().width/3;
       int height=tk.getScreenSize().height/2;
@@ -106,6 +108,7 @@ public class BetweenFrame extends JFrame implements ActionListener
       this.add(panel);
       this.pack();
       this.setVisible(true);
+      //sets up frame and disables buttons on previous frame to prevent multiple clicks as was used as exploit
    }
 
    public BetweenFrame(String title, ArrayList<ImageRound> pQuestion,int pCurrentQuestion,String pAnswerGiven,ImageGameFrame pFrame) throws HeadlessException {
@@ -146,7 +149,6 @@ public class BetweenFrame extends JFrame implements ActionListener
       super(title, gc);
    }
 
-   @Override
    public void actionPerformed(ActionEvent e)
    {
       if(e.getSource()==continueButton)
