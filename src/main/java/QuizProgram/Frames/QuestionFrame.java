@@ -95,9 +95,6 @@ public class QuestionFrame extends JFrame implements ActionListener
       questions=questionInfo.getOptions().toArray(new String[questionInfo.getOptions().size()]);
       questionLabel.setText(questionInfo.getQuestion());
 
-
-
-
       this.setLayout(new BoxLayout(this.getContentPane(),BoxLayout.Y_AXIS));
       panelTwo.add(questionLabel);
       panel.setLocation(SwingConstants.CENTER,SwingConstants.TOP);

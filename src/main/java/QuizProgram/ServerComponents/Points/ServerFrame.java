@@ -69,7 +69,7 @@ public class ServerFrame extends JFrame implements ActionListener
       mainPanel.add(refreshButton);
       //this.setLayout(new FlowLayout());
       this.add(mainPanel);
-
+      this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
      // clearPanel();
      // refreshList();
       //cycleButtonsList();
@@ -92,6 +92,7 @@ public class ServerFrame extends JFrame implements ActionListener
       mainPanel.add(refreshButton);
       //this.setLayout(new FlowLayout());
       this.add(mainPanel);
+      this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       this.pack();
       this.setVisible(true);
 

@@ -36,11 +36,13 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
    public QuestionAddFrame(String title,List<Questions> pQuestions) throws HeadlessException {
       super(title);
 
+      options = new ArrayList<String>();
+      correct = new ArrayList<String>();
       questionShower=new JTextPane();
       allQuestions=new JScrollPane(questionShower);
 
       questionShower.setEditable(false);
-
+      this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
       questions=pQuestions;
       for(int count=0;count<questions.size();count++){
@@ -55,13 +57,15 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
       questionInput=new JTextArea();
       answerInput=new JTextArea();
 
-      this.setLayout(new GridLayout(0,1));
+
+      this.setLayout(new BoxLayout(this.getContentPane(),BoxLayout.Y_AXIS));
 
       this.add(add);
       this.add(delete);
       this.add(allQuestions);
 
       this.setVisible(true);
+      this.pack();
 
 
 
@@ -84,11 +88,7 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
             }
          }
          MainQuiz.printToFile(questions);
-        questionShower.setText("");
-         for(Questions current:questions){
-            System.out.println(current.getQuestion());
-            questionShower.setText(questionShower.getText() + "\n" + current.getQuestion());
-         }
+        updateTextarea(questionShower);
       }
       else if(e.getSource().equals(add)){
          isAdding = true;
@@ -96,12 +96,64 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
          System.out.println("add clicked");
          question=JOptionPane.showInputDialog(this,"please enter a title for the question");
 
-         showAddingFrame();
+         showAddingFrame(question);
+         updateTextarea(questionShower);
 
       }
    }
 
-   private void showAddingFrame() {
+   private void updateTextarea(JTextPane pTextarea){
+      pTextarea.setText("");
+      for(Questions current:questions){
+         pTextarea.setText(questionShower.getText() + "\n" + current.getQuestion());
+      }
+   }
 
+   private void showAddingFrame(String pQuestion) {
+      boolean isEmpty = false;
+
+      options = new ArrayList<String>();
+      correct = new ArrayList<String>();
+      while(!isEmpty){
+
+         String selected =JOptionPane.showInputDialog(this,"please enter a possible answer");
+
+         if(selected == null || selected.equals("")){
+            isEmpty = true;
+         }
+         else{
+            options.add(selected);
+         }
+      }
+
+      isEmpty = false;
+      String all = "";
+      for(int count=0;count<options.size();count++){
+         all += count + " " + options.get(count) + "\n";
+      }
+
+      while(!isEmpty){
+
+         String selected =JOptionPane.showInputDialog(this,all + "please enter the number of the correct answer");
+
+         if(selected == null|| selected.equals("")){
+            isEmpty = true;
+         }
+         else{
+            try
+            {
+               correct.add(options.get(Integer.parseInt(selected)));
+            }
+            catch(Exception ex){
+               JOptionPane.showMessageDialog(this,"invalid number entered");
+            }
+
+         }
+      }
+
+      Questions addedQuestion = new Questions(question,options,correct);
+      all = "";
+      questions.add(addedQuestion);
+      MainQuiz.printToFile(questions);
    }
 }//class
