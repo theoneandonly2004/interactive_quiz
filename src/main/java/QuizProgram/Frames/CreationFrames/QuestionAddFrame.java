@@ -18,7 +18,7 @@ import java.util.List;
 public class QuestionAddFrame extends JFrame implements ActionListener {
    private boolean isAdding=true;
 
-   private JButton add,delete;
+   private JButton add,delete,deleteAll;
 
    private JTextArea questionInput;
    private String question;
@@ -49,6 +49,8 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
          questionShower.setText(questionShower.getText() + "\n" + questions.get(count).getQuestion());
       }
 
+      deleteAll = new JButton("DELETE ALL!!!");
+      deleteAll.addActionListener(this);
       add=new JButton("add a question");
       add.addActionListener(this);
       delete=new JButton("delete a question");
@@ -62,6 +64,7 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
 
       this.add(add);
       this.add(delete);
+      this.add(deleteAll);
       this.add(allQuestions);
 
       this.setVisible(true);
@@ -104,6 +107,21 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
          }
 
       }
+      else if(e.getSource().equals(deleteAll)){
+         int confirm=JOptionPane.showConfirmDialog(this,"please confirm you wish to perform this action");
+
+         if(confirm == JOptionPane.YES_OPTION){
+
+            confirm=JOptionPane.showConfirmDialog(this,"you must add new questions before\n playing the main quiz if you perform this action\n do you agree?");
+
+            if(confirm == JOptionPane.YES_OPTION){
+               questions.clear();
+               questionShower.setText("");
+               MainQuiz.printToFile(questions);
+            }
+
+         }
+      }
    }
 
    private void updateTextarea(JTextPane pTextarea){
@@ -111,6 +129,7 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
       for(Questions current:questions){
          pTextarea.setText(questionShower.getText() + "\n" + current.getQuestion());
       }
+      this.pack();
    }
 
    private void showAddingFrame(String pQuestion) {
@@ -120,10 +139,12 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
       correct = new ArrayList<String>();
       while(!isEmpty){
 
-         String selected =JOptionPane.showInputDialog(this,"please enter a possible answer");
+         String selected =JOptionPane.showInputDialog(this,"please enter a possible answer for \n" + question);
 
          if(selected == null || selected.equals("")){
-            isEmpty = true;
+            if(options.size()>0) {
+               isEmpty = true;
+            }
          }
          else{
             options.add(selected);
@@ -131,7 +152,7 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
       }
 
       isEmpty = false;
-      String all = "";
+      String all = question + "\n";
       for(int count=0;count<options.size();count++){
          all += count + " " + options.get(count) + "\n";
       }
@@ -141,7 +162,9 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
          String selected =JOptionPane.showInputDialog(this,all + "please enter the number of the correct answer");
 
          if(selected == null|| selected.equals("")){
-            isEmpty = true;
+            if(correct.size()>0) {
+               isEmpty = true;
+            }
          }
          else{
             try
