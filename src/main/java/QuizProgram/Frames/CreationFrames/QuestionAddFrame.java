@@ -80,7 +80,7 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
 
          System.out.println("delete clicked");
          for(Questions current:questions){
-            if(current.getQuestion().equals(selected)){
+            if(current.getQuestion().equalsIgnoreCase(selected)){
                System.out.println(current.getQuestion() + " size of : " + questions.size());
                questions.remove(current);
                System.out.println(current.getQuestion() + " size of : " + questions.size());
@@ -96,8 +96,12 @@ public class QuestionAddFrame extends JFrame implements ActionListener {
          System.out.println("add clicked");
          question=JOptionPane.showInputDialog(this,"please enter a title for the question");
 
-         showAddingFrame(question);
-         updateTextarea(questionShower);
+         if(question != null) {
+            if (!question.equals("")) {
+               showAddingFrame(question);
+               updateTextarea(questionShower);
+            }
+         }
 
       }
    }

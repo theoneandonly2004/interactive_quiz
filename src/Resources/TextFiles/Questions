@@ -49,20 +49,6 @@ OPTIONS
 6
 END
 QUESTION
-what does AFK stand for?
-ANSWERS
-Away From Keyboard
-OPTIONS
-Away From Keyboard
-Absolutely Funny King
-Away Farming Falmingos
-Java
-C#
-Ruby
-Apple
-Microsoft
-END
-QUESTION
 which of these is a programming language?
 ANSWERS
 Java
@@ -73,4 +59,15 @@ C--
 Apple
 Ruby
 Microsoft
+END
+QUESTION
+which of the following is NOT a simpson?
+ANSWERS
+Peter
+OPTIONS
+Bart
+Peter
+Maggie
+Krusty
+Homer
 END
