@@ -40,7 +40,7 @@ public class MainQuiz {
          if (open) {
 
             for (int count = 0; count < pQuestions.size(); count++) {
-               print(pQuestions.get(count).getQuestion());
+
                writer.println(pQuestions.get(count).toString());
             }
 
@@ -74,18 +74,18 @@ public class MainQuiz {
       }
 
       try {
-         print("now attempting to check if there is a line");
+
          while (input.hasNextLine())
          {
             pList.add(new Questions());
-            print("a new question was added");
+
 
             while (input.hasNextLine() || !header.equalsIgnoreCase(END))
             {
                header = (String) input.nextLine();
                if (!header.equals(END))
                {
-                  print(header);
+
                   if (header.equals(QUESTION))
                   {
                      title = header;
@@ -121,7 +121,7 @@ public class MainQuiz {
             }
 
 
-            print("all inputs read from file");
+
 
          }
       }
@@ -131,7 +131,7 @@ public class MainQuiz {
          print("there was an error happened");
       }
 
-      print("end of file called");
+
    }
 
 

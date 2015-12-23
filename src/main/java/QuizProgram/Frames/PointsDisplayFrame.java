@@ -25,7 +25,7 @@ public class PointsDisplayFrame extends JFrame
       for(int count=0;count<panelList.length;count++)
       {
          panelList[count]=new JPanel(new GridLayout(0,2));
-         teamNameList[count]=new JLabel(teamList.get(count).getTeamName());
+         teamNameList[count]=new JLabel(teamList.get(count).getTeamName() +":");
          teamScoreList[count]=new JLabel("" + teamList.get(count).getScore());
       }
 

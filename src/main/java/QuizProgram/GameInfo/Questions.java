@@ -110,11 +110,11 @@ public class Questions
             }
 
 
-            System.out.println(count  + " one" + options.get(positionOne) + ":" + options.get(positionTwo));
+
             temp=options.get(positionOne);
             options.set(positionOne,options.get(positionTwo));
             options.set(positionTwo,temp);
-            System.out.println(count + " two " + options.get(positionOne) + ":" + options.get(positionTwo));
+
 
 
 

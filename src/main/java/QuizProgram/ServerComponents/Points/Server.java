@@ -29,7 +29,6 @@ public class Server
       while(true) {
          Socket socket = serverSocket.accept();
         teamList.add(new TeamThread(socket));
-
       }
    }
 }//class

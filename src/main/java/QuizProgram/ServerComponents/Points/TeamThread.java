@@ -97,13 +97,15 @@ public class TeamThread extends Thread {
          toClient = new PrintWriter(socket.getOutputStream(), true);
          fromClient = new Scanner(socket.getInputStream());
         System.out.println(socket.getInetAddress().toString());
-      } catch (Exception ex) {}
+      } catch (Exception ex) {
+         System.out.println("uh oh spagettios i got error \n " + ex.getMessage());
+      }
 
 
          //teamList.add(new Team("my team"));
 
 
-         while (continueing) {
+         while (!this.isInterrupted()) {
             // try {
 
 
@@ -149,12 +151,25 @@ public class TeamThread extends Thread {
                // } catch (Exception ex) {
                //System.out.println(ex.getMessage());
             } catch (Exception error) {
-               fromClient.close();
+              // fromClient.close();
+               if(fromClient != null){
+                  fromClient.close();
+               }
+
+               if(toClient != null){
+                  toClient.close();
+                  toClient.flush();
+               }
                System.out.println("thread now closed");
-               clientInput = "end";
-               continueing = false;
+               System.out.println(error.getMessage());
+
+               break;
+               //fromClient.close();
+
+
             }
          }
+
       }
    }
 

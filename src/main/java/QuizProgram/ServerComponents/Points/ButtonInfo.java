@@ -86,10 +86,12 @@ public class ButtonInfo implements ActionListener
             {
               // PointsServer.threadsList.remove(position);
 
-               teamThread.socket.close();
-               teamThread.toClient.close();
-               teamThread.fromClient.close();
-               PointsServer.threadsList.remove(position);
+               //teamThread.stop();
+               teamThread.interrupt();
+               //teamThread.socket.close();
+              // teamThread.toClient.close();
+              // teamThread.fromClient.close();
+              // PointsServer.threadsList.remove(position);
                PointsServer.teamsList.remove(position);
 
 
@@ -114,7 +116,9 @@ public class ButtonInfo implements ActionListener
                JOptionPane.showMessageDialog(null, "team " + currentTeam.getTeamName() + " has been disconected");
                //serverFrame.dispose();
             }
-            catch (Exception ex) {}
+            catch (Exception ex) {
+               System.out.println("bum cakes we got error \n" + ex.getMessage());
+            }
          }
       }
       else if(e.getSource().equals(updateScoreButton))

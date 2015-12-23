@@ -115,6 +115,7 @@ public class BetweenFrame extends JFrame implements ActionListener
       super(title);
 
 
+      pFrame.setEnabled(false);
       Toolkit tk = Toolkit.getDefaultToolkit();
       int width=tk.getScreenSize().width/3;
       int height=tk.getScreenSize().height/2;

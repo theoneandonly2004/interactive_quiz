@@ -83,6 +83,7 @@ public class GameSelectFrame extends JFrame implements ActionListener
       this.add(teamInfo);
       this.add(buttonPanel);
       this.add(getScoreButton);
+      this.setTitle(teamName);
 
       this.pack();
       this.setVisible(true);
