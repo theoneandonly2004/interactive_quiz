@@ -114,7 +114,7 @@ public class ButtonInfo implements ActionListener
                JOptionPane.showMessageDialog(null, "team " + currentTeam.getTeamName() + " has been disconected");
                //serverFrame.dispose();
             }
-            catch (IOException ex) {}
+            catch (Exception ex) {}
          }
       }
       else if(e.getSource().equals(updateScoreButton))

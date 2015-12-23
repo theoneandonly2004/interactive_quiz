@@ -82,7 +82,6 @@ public class PointsServer
      int position=findTeam(pName);
 
       if(position != -1) {
-         System.out.println("found team name is " + PointsServer.teamsList.get(position).getTeamName());
          teamsList.remove(position);
          threadsList.remove(position);
          lastArrayPosition--;

@@ -69,9 +69,9 @@ public class PointsDisplayFrame extends JFrame
          }
 
       }
-      catch(InputMismatchException ex)
+      catch(Exception ex)
       {
-
+         System.out.println(ex.getMessage());
       }
    }
 
@@ -94,6 +94,8 @@ public class PointsDisplayFrame extends JFrame
       super(title);
 
       int numberOfTeams;
+      int count=0;
+      boolean isFound=false;
       teamList=new ArrayList<Team>();
 
       getTeams();
@@ -104,6 +106,9 @@ public class PointsDisplayFrame extends JFrame
       panelList=new JPanel[numberOfTeams];
       teamNameList=new JLabel[numberOfTeams];
       teamScoreList=new JLabel[numberOfTeams];
+
+
+
       setupDisplayPanels();
 
 

@@ -21,6 +21,7 @@ public class GameSelectFrame extends JFrame implements ActionListener
    private JLabel infoText;
 
    private JLabel teamInfo;
+   private String teamName;
 
 
    private ArrayList<Questions>questionsList;
@@ -40,7 +41,10 @@ public class GameSelectFrame extends JFrame implements ActionListener
 
 
       if(KeyValue.team==null) {
-         String teamName = JOptionPane.showInputDialog(null, "please enter your username");
+         do {
+            teamName = JOptionPane.showInputDialog(null, "please enter your username");
+
+         }while( teamName.equals(""));
          KeyValue.team = new Team(teamName);
          KeyValue.getToServer().println("add");
          KeyValue.getToServer().println(teamName);
